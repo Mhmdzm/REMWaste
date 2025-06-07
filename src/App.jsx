@@ -22,7 +22,7 @@ export default function App() {
             key={skip.id}
             skip={skip}
             isSelected={selectedId === skip.id}
-            onSelect={() => setSelectedId(skip.id)}
+            onSelect={() => setSelectedId(prevId => prevId === skip.id ? null : skip.id)}
           />
         ))}
       </div>
