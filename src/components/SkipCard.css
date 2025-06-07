@@ -70,7 +70,7 @@
   align-items: center;
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
   pointer-events: none;
 }
 
@@ -101,7 +101,7 @@
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.9s ease;
 }
 
 .btn-select:hover {
