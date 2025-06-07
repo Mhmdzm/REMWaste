@@ -24,7 +24,7 @@ export default function App() {
       {
         y: 0,
         opacity: 1,
-        duration: 1.1,
+        duration: 2.1,
         ease: 'back.out(1.7)',
       }
     ).fromTo(
