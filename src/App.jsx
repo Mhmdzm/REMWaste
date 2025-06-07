@@ -13,6 +13,8 @@ export default function App() {
       .catch((err) => console.error('Failed to load skip data', err));
   }, []);
 
+  const selectedSkip = skips.find((s) => s.id === selectedId);
+
   return (
     <div className="container">
       <h1>Choose Your Skip Size</h1>
@@ -22,9 +24,37 @@ export default function App() {
             key={skip.id}
             skip={skip}
             isSelected={selectedId === skip.id}
-            onSelect={() => setSelectedId(prevId => prevId === skip.id ? null : skip.id)}
+            onSelect={() =>
+              setSelectedId((prevId) => (prevId === skip.id ? null : skip.id))
+            }
           />
         ))}
+      </div>
+
+      {/* Sticky Footer */}
+      <div className={`footer-bar ${selectedSkip ? 'visible' : ''}`}>
+        {selectedSkip && (
+          <>
+            {/* Disclaimer */}
+            <div className="footer-disclaimer">
+              Imagery and information shown throughout this website may not reflect the exact shape or size specification,
+              colours may vary, options and/or accessories may be featured at additional cost.
+            </div>
+
+            {/* Skip Summary + Buttons */}
+            <div className="footer-content-row">
+              <div className="footer-skip-details">
+                <strong>{selectedSkip.size} Yard Skip</strong>&nbsp;
+                <span className="footer-price">£{selectedSkip.price_before_vat}</span>&nbsp;
+                <span>{selectedSkip.hire_period_days} day hire</span>
+              </div>
+              <div className="footer-actions">
+                <button className="btn-grey">Back</button>
+                <button className="btn-blue">Continue →</button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
